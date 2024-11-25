@@ -9,6 +9,10 @@ const (
 	sliceSize = 10
 )
 
+var (
+	errIndexOutOfRange = fmt.Errorf("index out of range")
+)
+
 // sliceExample takes a slice of integers and returns a new slice containing only the even numbers.
 func sliceExample(slice []int) []int {
 
@@ -53,7 +57,7 @@ func addElements(slice []int, number int) []int {
 // It returns a new slice with the element removed and an error if the index is out of range.
 func removeElement(slice []int, index int) ([]int, error) {
 	if index < 0 || index >= len(slice) {
-		return nil, fmt.Errorf("index out of range")
+		return nil, errIndexOutOfRange
 	}
 	newSlice := make([]int, len(slice)-1)
 
