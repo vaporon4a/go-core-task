@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/sha256"
 	"fmt"
+	"strings"
 )
 
 var numDecimal int = 42           // Десятичная система
@@ -28,11 +29,11 @@ func toRuneSlice(s string) []rune {
 // makeString takes any number of strings as arguments and returns a concatenated string.
 // It is used to combine all the strings that we want to hash together.
 func makeString(str ...string) string {
-	result := ""
+	builder := strings.Builder{}
 	for _, s := range str {
-		result += s
+		builder.WriteString(s)
 	}
-	return result
+	return builder.String()
 }
 
 // printType prints the type of the provided argument 'a' to the standard output.
