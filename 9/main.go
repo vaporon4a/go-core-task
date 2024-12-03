@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 // numberConveer takes a channel of uint8 and a channel of float64, and it
 // closes the float64 channel after writing the cubed value of each number
@@ -14,7 +17,7 @@ func numberConveer(chuint8 <-chan uint8, chfloat64 chan<- float64) {
 
 // tripple takes a uint8 number and returns its cube as a float64.
 func tripple(n uint8) float64 {
-	return float64(n) * float64(n) * float64(n)
+	return math.Pow(float64(n), 3)
 }
 
 func main() {
